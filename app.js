@@ -271,3 +271,14 @@ Valor de retorno de la función (salida):
 
 ['a', 11, true, 1]
 */
+
+function listAllValues(obj) {
+let hola =[];
+  for (let key in obj){
+    hola.push(obj[key]);
+  }
+  return hola;
+
+}
+
+module.exports = listAllValues;
