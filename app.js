@@ -78,8 +78,10 @@ var output = getElementOfArrayProperty(obj, 'key', 0);
 console.log(output); // --> 'Jamil' */
 
 function getElementOfArrayProperty(obj, key, index) {
-  if ( obj[key] && obj[key].length && Array.isArray(obj[key]) && index >= 0 && index < obj[key].length ){
-    return undefined;
+  if ( obj[key] || obj[key].length || Array.isArray(obj[key]) || index >= 0 || index < obj[key].length || key===key){
+      return undefined;
+  }else{
+  console.log(obj.key[index]);
   }
 }
 module.exports = getElementOfArrayProperty;
@@ -110,3 +112,67 @@ No codificar los datos exactos de la muestra. Esto es una mala idea:
 if (firstName === 'Joe') {
   // do something
 } */
+
+const customerData = {
+  Joe: {
+    visits: 1,
+  },
+  Carol: {
+    visits: 2,
+  },
+  Howard: {
+    visits: 3,
+  },
+  Carrie: {
+    visits: 4,
+  },
+};
+
+function greetCustomer(firstName) {
+  const greeting = '';
+
+  // your code here
+
+  return greeting;
+}
+
+module.exports = greetCustomer;
+
+// Ejercicio 6
+/*
+Escriba una función 'transformFirstAndLast' que toma un array y devuelve un objeto con:
+
+el primer elemento del array como la clave del objeto, y
+el último elemento del array como valor de esa clave.
+Ejemplo de entrada:
+
+['Queen', 'Elizabeth', 'Of Hearts', 'Beyonce']
+Valor de retorno de la función (salida):
+
+{
+  Queen: 'Beyonce'
+}
+No cambie el array de entrada. Suponga que todos los elementos del array de entrada serán del tipo string.
+
+Tenga en cuenta que el array de entrada puede tener un número variable de elementos. Tu código debería acomodarse de manera flexible.
+
+Ejemplo, debe manejar la entrada como:
+
+['Kevin', 'Bacon', 'Amor', 'Hart', 'Costner', 'Spacey']
+Valor de retorno de la función (salida):
+
+{
+  Kevin: "Spacey"
+}
+*/
+
+function transformFirstAndLast(array) {
+  let first = [array[0]];
+  let last = array.pop();
+  let arr = {};
+  arr[first] = last;
+  return arr;
+}
+
+module.exports = transformFirstAndLast;
+
